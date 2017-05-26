@@ -48,7 +48,6 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (7.1.4)
-    bcrypt (3.1.11)
     bcrypt (3.1.11-x86-mingw32)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -172,6 +171,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bcrypt
   better_errors
   byebug
   coffee-rails (~> 4.2)

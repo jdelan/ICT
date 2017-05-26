@@ -39,8 +39,6 @@ validates :username, :presence => true
 validates :username, :uniqueness => true
 validates :last_name, :presence => true
 validates :first_name, :presence => true
-validates :company_comments_count, :numericality => { :greater_than_or_equal_to => 0 }
-validates :articles_count, :numericality => { :greater_than_or_equal_to => 0 }
-validates :article_comments_count, :numericality => { :greater_than_or_equal_to => 0 }
+
 
 end
