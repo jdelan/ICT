@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: companies
+#
+#  id              :integer          not null, primary key
+#  name            :text
+#  description     :text
+#  tags            :string
+#  hq_address      :string
+#  active_business :boolean
+#  user_id         :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Company < ApplicationRecord
 
   has_many :company_comments, :dependent => :destroy
