@@ -11,17 +11,14 @@
       <dt>Description</dt>
       <dd><%= @company.description %></dd>
 
-      <dt>Tags</dt>
-      <dd><%= @company.tags %></dd>
-
-      <dt>Hq address</dt>
+      <dt>HQ address</dt>
       <dd><%= @company.hq_address %></dd>
 
       <dt>Active business</dt>
-      <dd><%= @company.active_business %></dd>
+      <dd><%= if @company.active_business then "Yes" else "No" end%></dd>
 
-      <dt>User</dt>
-      <dd><%= @company.user_id %></dd>
+      <dt>Added by</dt>
+      <dd><%= User.find_by({ :id => @company.user_id }).username %></dd>
 
     </dl>
 

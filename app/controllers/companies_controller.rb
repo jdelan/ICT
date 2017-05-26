@@ -13,7 +13,6 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
-
     render("companies/new.html.erb")
   end
 

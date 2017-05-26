@@ -11,10 +11,10 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>Tags</th>
-        <th>Hq address</th>
+        <th>HQ address</th>
         <th>Active business</th>
-        <th>User</th>
+        <th>Added by</th>
+        <th>Last Updated</th>
         <th>Actions</th>
       </tr>
 
@@ -22,10 +22,10 @@
       <tr>
         <td><%= company.name %></td>
         <td><%= company.description %></td>
-        <td><%= company.tags %></td>
         <td><%= company.hq_address %></td>
-        <td><%= company.active_business %></td>
-        <td><%= company.user_id %></td>
+        <td><%= if company.active_business then "Yes" else "No" end%></td>
+        <td><%= User.find_by({ :id => company.user_id }).username %></td>
+        <td><%= time_ago_in_words(company.updated_at) %> ago</td>
         <td>
           <a href="/companies/<%= company.id %>" class="btn btn-primary">Show</a>
           <a href="/companies/<%= company.id %>/edit" class="btn btn-warning">Edit</a>
