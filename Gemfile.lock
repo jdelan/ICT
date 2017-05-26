@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/raghubetina/starter_generators.git
+  remote: https://github.com/raghubetina/starter_generators
   revision: 48fa7a4fbe4eb90ecfe05a133a7d7550167308f8
   specs:
     starter_generators (0.9.6)
@@ -49,6 +49,7 @@ GEM
       rake (>= 0.8.7)
     arel (7.1.4)
     bcrypt (3.1.11)
+    bcrypt (3.1.11-x86-mingw32)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)

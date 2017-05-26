@@ -9,7 +9,7 @@ gem "devise"
 group :development do
   gem "annotate"
   gem "better_errors"
-  gem "starter_generators", :git => 'git://github.com/raghubetina/starter_generators.git'
+  gem "starter_generators", :git => "https://github.com/raghubetina/starter_generators"
 end
 
 
