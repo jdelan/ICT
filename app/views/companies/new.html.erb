@@ -1,0 +1,81 @@
+<!-- Validation failure messages -->
+<% if @company.errors.any? %>
+  <% @company.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Company</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_company" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <textarea id="name" name="name" placeholder="Name" class="form-control" rows="3"><%= @company.name %></textarea>
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @company.description %></textarea>
+      </div>
+
+      <!-- Label and input for tags -->
+      <div class="form-group">
+        <label for="tags" class="control-label">
+          Tags
+        </label>
+
+        <input type="text" id="tags" name="tags" placeholder="Tags" class="form-control" value="<%= @company.tags %>">
+      </div>
+
+      <!-- Label and input for hq_address -->
+      <div class="form-group">
+        <label for="hq_address" class="control-label">
+          Hq address
+        </label>
+
+        <input type="text" id="hq_address" name="hq_address" placeholder="Hq address" class="form-control" value="<%= @company.hq_address %>">
+      </div>
+
+      <!-- Label and input for active_business -->
+      <div class="checkbox">
+        <label for="active_business">
+          <input type="checkbox" id="active_business" name="active_business" value="1" <%= "checked" if @company.active_business %>>
+          Active business
+        </label>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @company.user_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Company
+      </button>
+      or
+      <a href="/companies">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @contact.errors.any? %>
+  <% @contact.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Contact #<%= @contact.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_contact/<%= @contact.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @contact.name %>">
+      </div>
+
+      <!-- Label and input for role -->
+      <div class="form-group">
+        <label for="role" class="control-label">
+          Role
+        </label>
+
+        <input type="text" id="role" name="role" placeholder="Role" class="form-control" value="<%= @contact.role %>">
+      </div>
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <textarea id="email" name="email" placeholder="Email" class="form-control" rows="3"><%= @contact.email %></textarea>
+      </div>
+
+      <!-- Label and input for phone_number -->
+      <div class="form-group">
+        <label for="phone_number" class="control-label">
+          Phone number
+        </label>
+
+        <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" class="form-control" value="<%= @contact.phone_number %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @contact.notes %></textarea>
+      </div>
+
+      <!-- Label and input for company_id -->
+      <div class="form-group">
+        <label for="company_id" class="control-label">
+          Company
+        </label>
+
+        <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control" value="<%= @contact.company_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @contact.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Contact
+      </button>
+      or
+      <a href="/contacts/<%= @contact.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Company #<%= @company.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @company.name %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @company.description %></dd>
+
+      <dt>Tags</dt>
+      <dd><%= @company.tags %></dd>
+
+      <dt>Hq address</dt>
+      <dd><%= @company.hq_address %></dd>
+
+      <dt>Active business</dt>
+      <dd><%= @company.active_business %></dd>
+
+      <dt>User</dt>
+      <dd><%= @company.user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/companies" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/companies/<%= @company.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_company/<%= @company.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
