@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  root to: "companies#index"
+
   # Routes for the Story resource:
   # CREATE
   get "/stories/new", :controller => "stories", :action => "new"
@@ -85,8 +88,7 @@ Rails.application.routes.draw do
   get "/delete_contact/:id", :controller => "contacts", :action => "destroy"
   #------------------------------
 
-  devise_for :users
-  root to: "companies#index"
+
   # Routes for the Company resource:
   # CREATE
   get "/companies/new", :controller => "companies", :action => "new"

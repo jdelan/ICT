@@ -6,6 +6,7 @@ class CompanyCommentsController < ApplicationController
   end
 
   def show
+    @company = Company.find(params[:id])
     @company_comment = CompanyComment.find(params[:id])
 
     render("company_comments/show.html.erb")
@@ -27,7 +28,7 @@ class CompanyCommentsController < ApplicationController
     save_status = @company_comment.save
 
     if save_status == true
-      redirect_to("/company_comments/#{@company_comment.id}", :notice => "Company comment created successfully.")
+      redirect_to("/companies/#{@company}", :notice => "Company comment created successfully.")
     else
       render("company_comments/new.html.erb")
     end

@@ -49,7 +49,7 @@
           <% @company.company_comments.each do |comment| %>
           <tr>
             <td><%= comment.user.username%> ... <%= time_ago_in_words(comment.created_at) %> ago </br></td>
-            <td><%= comment.comment %></td>
+            <td><%= comment.comment %></br></td>
 
             <td>
               <a href="/comment/<%= comment.id %>" class="btn btn-primary">Show</a>
@@ -57,8 +57,10 @@
               <a href="/comment/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>
               <a href="/delete_company_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
               <% end %>
+              </br>
             </td>
-
+          </tr>
+          <% end %>
 
             <td><p>
               <form action="/create_company_comment" method="post">
@@ -70,7 +72,7 @@
                   <input type="text" id="new_comment" name="comment" placeholder="New Comment" class="form-control">
                 </div>
 
-                <input type="hidden" name="company_id" value="<%= comment.company.id %>">
+                <input type="hidden" name="company_id" value="<%= @company.id %>">
 
                 <input type="hidden" name="user_id" value="<%= current_user.id %>">
                 <button class="btn btn-link">
@@ -78,9 +80,6 @@
                 </button>
               </form>
             </p></td>
-            
-          </tr>
-          <% end %>
         </h3>
       </div>
     </div>
