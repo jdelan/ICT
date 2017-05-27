@@ -9,23 +9,30 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Url</th>
-        <th>Tag</th>
-        <th>Title</th>
         <th>Company</th>
+        <th>Title</th>
         <th>Date</th>
-        <th>User</th>
+                <th>Posted Date</th>
+        <th>Tag</th>
+        <th>Posted By</th>
+        <th>Url</th>
         <th>Actions</th>
       </tr>
 
       <% @articles.each do |article| %>
       <tr>
-        <td><%= article.url %></td>
-        <td><%= article.tag %></td>
+        <td><%= article.stories %></td>
         <td><%= article.title %></td>
-        <td><%= article.company_id %></td>
         <td><%= article.date %></td>
-        <td><%= article.user_id %></td>
+        <td><%= article.created_at.strftime('%F') %></td>
+        <td><%= article.tag %></td>
+        <td><%= article.user.username %></td>
+        <td><% if article.url[21] != nil then %>
+          <%=  article.url[0,20]+"..." %>
+          <% else %>
+          <%=  article.url%>
+          <% end %>
+        </td>
         <td>
           <a href="/articles/<%= article.id %>" class="btn btn-primary">Show</a>
           <a href="/articles/<%= article.id %>/edit" class="btn btn-warning">Edit</a>
