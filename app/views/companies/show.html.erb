@@ -35,3 +35,54 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+
+          <% @company.company_comments.each do |comment| %>
+          <tr>
+            <td><%= comment.user.username%> ... <%= time_ago_in_words(comment.created_at) %> ago </br></td>
+            <td><%= comment.comment %></td>
+
+            <td>
+              <a href="/comment/<%= comment.id %>" class="btn btn-primary">Show</a>
+              <% if comment.user.id == current_user.id then %>
+              <a href="/comment/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>
+              <a href="/delete_company_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+              <% end %>
+            </td>
+
+
+            <td><p>
+              <form action="/create_company_comment" method="post">
+                <!-- Hidden input for authenticity token to protect from forgery -->
+                <input name="authenticity_token" type="hidden">
+
+                <!-- Label and input for New comment -->
+                <div class="form-group">
+                  <input type="text" id="new_comment" name="comment" placeholder="New Comment" class="form-control">
+                </div>
+
+                <input type="hidden" name="company_id" value="<%= comment.company.id %>">
+
+                <input type="hidden" name="user_id" value="<%= current_user.id %>">
+                <button class="btn btn-link">
+                  <i>Submit Comment</i>
+                </button>
+              </form>
+            </p></td>
+            
+          </tr>
+          <% end %>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
