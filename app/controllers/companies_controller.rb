@@ -8,6 +8,13 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
 
+    @street_address = @company.hq_address
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + @street_address.gsub(" ","+")
+    parsed_data = JSON.parse(open(url).read)
+    @latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
+    @longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
+    
+
     render("companies/show.html.erb")
   end
 

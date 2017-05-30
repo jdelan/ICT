@@ -24,7 +24,15 @@
       <dd><%= @company.description %></dd>
 
       <dt>HQ address</dt>
-      <dd><%= @company.hq_address %></dd>
+      <dd>
+        <%= @company.hq_address %>
+      </dd>
+      <dd>        <iframe width="300" height="300" frameborder="0" style="border:0"
+               src="https://www.google.com/maps/embed?<%=@latitude%>,<%=@longitude%>"
+               allowfullscreen>
+              </iframe>
+            </dd>
+<!-- AIzaSyDiImsjKJaTq4xmwmzbNINp-Y_aadzA2c0 -->
 
       <dt>Active business</dt>
       <dd><%= if @company.active_business then "Yes" else "No" end%></dd>
