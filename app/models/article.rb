@@ -15,7 +15,8 @@
 
 class Article < ApplicationRecord
   belongs_to :user
-  has_many :stories, :class_name => "Company", :foreign_key => "company_id"
+  has_many :stories, :class_name => "Story", :foreign_key => "article_id"
+    has_many :companies, :through => :stories
   has_many :references, :through => :stories, :source => :company
   validates :user_id, :presence => true
 validates :url, :presence => true

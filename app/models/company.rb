@@ -15,6 +15,7 @@
 
 class Company < ApplicationRecord
 
+  belongs_to :user, :class_name => "User", :foreign_key => "user_id"
   has_many :company_comments, :dependent => :destroy
   has_many :contacts, :dependent => :destroy
   has_many :trackings, :dependent => :destroy

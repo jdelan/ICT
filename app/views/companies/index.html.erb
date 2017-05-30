@@ -24,7 +24,7 @@
         <td><%= company.description %></td>
         <td><%= company.hq_address %></td>
         <td><%= if company.active_business then "Yes" else "No" end%></td>
-        <td><%= User.find_by({ :id => company.user_id }).username %></td>
+        <td><%= company.user.username %></td>
         <td><%= time_ago_in_words(company.updated_at) %> ago</td>
         <td>
           <a href="/companies/<%= company.id %>" class="btn btn-primary">Show</a>
