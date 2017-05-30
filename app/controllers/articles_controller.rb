@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
     @story = Story.new
 
     @story.company_id = params[:company_id]
-    @story.article_id = params[:id]
+    @story.article_id = @article.id
 
     save_status = @story.save
 

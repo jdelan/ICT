@@ -30,14 +30,14 @@
       <!-- Label and input for company_id -->
       <div class="form-group">
         <label for="company_id" class="control-label">
-          Company
+          Company <a href="/companies/new">or add a company</a>
         </label>
 
-        <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control" value="<%= @company_comment.company_id %>">
+        <%= select_tag(:company_id, options_from_collection_for_select(Company.order("name ASC"), :id, :name), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
 
 
       <button class="btn btn-success">

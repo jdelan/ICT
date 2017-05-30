@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>
-    Company comments
+    Recent Comments on Companies
     <a href="/company_comments/new" class="btn btn-lg btn-success">New Company comment</a>
   </h1>
 </div>
@@ -18,12 +18,14 @@
       <% @company_comments.each do |company_comment| %>
       <tr>
         <td><%= company_comment.comment %></td>
-        <td><%= company_comment.company_id %></td>
-        <td><%= company_comment.user_id %></td>
+        <td><%= company_comment.company.name %></td>
+        <td><%= company_comment.user.username %></td>
         <td>
           <a href="/company_comments/<%= company_comment.id %>" class="btn btn-primary">Show</a>
+          <% if company_comment.user_id == current_user.id then %>
           <a href="/company_comments/<%= company_comment.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_company_comment/<%= company_comment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

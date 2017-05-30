@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Company #<%= @company.id %></h3>
+  <h3>Edit <%= @company.name %></h3>
 </div>
 
 <div class="row">
@@ -21,7 +21,7 @@
       <!-- Label and input for name -->
       <div class="form-group">
         <label for="name" class="control-label">
-          Name
+          Company Name
         </label>
 
         <textarea id="name" name="name" placeholder="Name" class="form-control" rows="3"><%= @company.name %></textarea>
@@ -54,13 +54,7 @@
       </div>
 
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @company.user_id %>">
-      </div>
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
 
       <button class="btn btn-warning">
         Update Company
