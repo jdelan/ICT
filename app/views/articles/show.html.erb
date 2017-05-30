@@ -15,9 +15,9 @@
       <dd><%= @article.title %></dd>
 
       <dt>Company</dt>
-      <% @article.stories.each do |story| %>
-      <dd><%= story.company.name %></dd>
-      <% end %>
+      <dd><% @article.stories.each do |story| %>
+      <%= story.company.name %>
+      <% end %></dd>
 
       <dt>Date</dt>
       <dd><%= @article.date %></dd>

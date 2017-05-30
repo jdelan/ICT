@@ -23,11 +23,20 @@ class ArticlesController < ApplicationController
     @article.url = params[:url]
     @article.tag = params[:tag]
     @article.title = params[:title]
-    @article.company_id = params[:company_id]
+    # @article.company_id = params[:company_id]
     @article.date = params[:date]
     @article.user_id = params[:user_id]
 
     save_status = @article.save
+
+    @story = Story.new
+
+    @story.company_id = params[:company_id]
+    @story.article_id = params[:id]
+
+    save_status = @story.save
+
+
 
     if save_status == true
       redirect_to("/articles/#{@article.id}", :notice => "Article created successfully.")

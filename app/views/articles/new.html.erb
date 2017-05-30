@@ -50,10 +50,8 @@
         <label for="company_id" class="control-label">
           Company
         </label>
-
-        <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control" value="<%= @article.company_id %>">
+        <%= select_tag(:company_id, options_from_collection_for_select(Company.order("name ASC"), :id, :name), :class => "form-control") %>
       </div>
-
       <!-- Label and input for date -->
       <div class="form-group">
         <label for="date" class="control-label">
