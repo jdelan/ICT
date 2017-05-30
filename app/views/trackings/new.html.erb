@@ -19,25 +19,19 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @tracking.user_id %>">
-      </div>
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
 
       <!-- Label and input for company_id -->
       <div class="form-group">
         <label for="company_id" class="control-label">
           Company
-        </label>
+        </label><a href="/companies/new"> or add a company</a>
 
-        <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control" value="<%= @tracking.company_id %>">
+        <%= select_tag(:company_id, options_from_collection_for_select(Company.order("name ASC"), :id, :name), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
-        Create Tracking
+      Track Company
       </button>
       or
       <a href="/trackings">Cancel</a>

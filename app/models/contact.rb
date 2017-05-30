@@ -20,6 +20,6 @@ class Contact < ApplicationRecord
 belongs_to :user
 validates :user_id, :presence => true
 validates :name, :presence => true
-validates :name, :uniqueness => { :scope => [:role, :email, :phone_number, :company_id] }
+validates :name, :uniqueness => { :scope => [:user_id, :role, :company_id] }
 validates :company_id, :presence => true
 end
