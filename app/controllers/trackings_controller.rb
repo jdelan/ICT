@@ -1,6 +1,6 @@
 class TrackingsController < ApplicationController
   def index
-    @trackings = Tracking.all
+    @trackings = Tracking.all.where({ user_id: current_user.id })
 
     render("trackings/index.html.erb")
   end
