@@ -15,7 +15,6 @@
         <th>Phone number</th>
         <th>Notes</th>
         <th>Company</th>
-        <th>User</th>
         <th>Actions</th>
       </tr>
 
@@ -26,8 +25,7 @@
         <td><%= contact.email %></td>
         <td><%= contact.phone_number %></td>
         <td><%= contact.notes %></td>
-        <td><%= contact.company_id %></td>
-        <td><%= contact.user_id %></td>
+        <td><%= contact.company.name %></td>
         <td>
           <a href="/contacts/<%= contact.id %>" class="btn btn-primary">Show</a>
           <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">Edit</a>

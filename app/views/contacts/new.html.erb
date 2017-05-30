@@ -27,6 +27,15 @@
         <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @contact.name %>">
       </div>
 
+      <!-- Label and input for company_id -->
+      <div class="form-group">
+        <label for="company_id" class="control-label">
+          Company
+        </label>
+
+        <%= select_tag(:company_id, options_from_collection_for_select(Company.order("name ASC"), :id, :name), :class => "form-control") %>
+      </div>
+
       <!-- Label and input for role -->
       <div class="form-group">
         <label for="role" class="control-label">
@@ -63,23 +72,8 @@
         <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @contact.notes %></textarea>
       </div>
 
-      <!-- Label and input for company_id -->
-      <div class="form-group">
-        <label for="company_id" class="control-label">
-          Company
-        </label>
-
-        <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control" value="<%= @contact.company_id %>">
-      </div>
-
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @contact.user_id %>">
-      </div>
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
 
       <button class="btn btn-success">
         Create Contact
