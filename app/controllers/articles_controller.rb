@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
     @article.url = params[:url]
     @article.tag = params[:tag]
     @article.title = params[:title]
-    # @article.company_id = params[:company_id]
+    @article.company_id = params[:company_id]
     @article.date = params[:date]
     @article.user_id = params[:user_id]
 
