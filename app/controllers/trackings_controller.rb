@@ -26,7 +26,7 @@ class TrackingsController < ApplicationController
     save_status = @tracking.save
 
     if save_status == true
-      redirect_to("/trackings/#{@tracking.id}", :notice => "Tracking created successfully.")
+      redirect_to("/companies/#{@tracking.company_id}", :notice => "Tracking created successfully.")
     else
       render("trackings/new.html.erb")
     end

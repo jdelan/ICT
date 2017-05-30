@@ -1,5 +1,17 @@
 <div class="page-header">
   <h3><%= @company.name %></h3>
+
+
+<form action="/create_tracking" method="post">
+  <!-- Hidden input for authenticity token to protect from forgery -->
+  <input name="authenticity_token" type="hidden">
+  <input type="hidden" name="company_id" value="<%= @company.id %>">
+
+  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+  <button class="btn btn-info">
+    <i>Track Company</i>
+  </button>
+</form>
 </div>
 
 <div class="row">
@@ -36,7 +48,7 @@
   </div>
 </div>
 
-
+<h2>Comments</h2>
 
 
 

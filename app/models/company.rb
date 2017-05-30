@@ -26,6 +26,6 @@ validates :name, :presence => true
 validates :name, :uniqueness => { :scope => [:hq_address] }
 validates :hq_address, :presence => true
 validates :hq_address, :uniqueness => true
-validates :active_business, :presence => true
+# validates :active_business, :presence => true
 
 end
