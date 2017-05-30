@@ -15,7 +15,7 @@
 
       <% @trackings.each do |tracking| %>
       <tr>
-        <td><%= tracking.company.name %></td>
+        <td><a href="/delete_tracking/<%= tracking.id %>"><%= tracking.company.name %></td>
         <td>
           <a href="/delete_tracking/<%= tracking.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>

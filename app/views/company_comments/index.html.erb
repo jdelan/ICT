@@ -17,11 +17,10 @@
 
       <% @company_comments.each do |company_comment| %>
       <tr>
-        <td><%= company_comment.comment %></td>
+        <td><a href="/company_comments/<%= company_comment.id %>"><%= company_comment.comment %></td>
         <td><%= company_comment.company.name %></td>
         <td><%= company_comment.user.username %></td>
         <td>
-          <a href="/company_comments/<%= company_comment.id %>" class="btn btn-primary">Show</a>
           <% if company_comment.user_id == current_user.id then %>
           <a href="/company_comments/<%= company_comment.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_company_comment/<%= company_comment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>

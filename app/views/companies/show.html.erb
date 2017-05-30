@@ -1,7 +1,7 @@
 <div class="page-header">
   <h3><%= @company.name %></h3>
 
-
+  <!-- if Tracking.where([user_id: current_user.id, company_id: @company.id]) then   -->
 <form action="/create_tracking" method="post">
   <!-- Hidden input for authenticity token to protect from forgery -->
   <input name="authenticity_token" type="hidden">

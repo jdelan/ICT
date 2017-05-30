@@ -20,14 +20,13 @@
 
       <% @companies.each do |company| %>
       <tr>
-        <td><%= company.name %></td>
+        <td><a href="/companies/<%= company.id %>"><%= company.name %></td>
         <td><%= company.description %></td>
         <td><%= company.hq_address %></td>
         <td><%= if company.active_business then "Yes" else "No" end%></td>
         <td><%= company.user.username %></td>
         <td><%= time_ago_in_words(company.updated_at) %> ago</td>
         <td>
-          <a href="/companies/<%= company.id %>" class="btn btn-primary">Show</a>
           <% if company.user_id == current_user.id then %>
           <a href="/companies/<%= company.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_company/<%= company.id %>" class="btn btn-danger" rel="nofollow">Delete</a>

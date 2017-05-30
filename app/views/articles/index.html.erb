@@ -21,7 +21,7 @@
 
       <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
+        <td><a href="/articles/<%= article.id %>"><%= article.title %></td>
         <td>
           <% article.stories.each do |story| %>
           <dd><%= story.company.name %></dd>
@@ -38,7 +38,6 @@
           <% end %>
         </td>
         <td>
-          <a href="/articles/<%= article.id %>" class="btn btn-primary">Show</a>
           <% if article.user_id == current_user.id then %>
           <a href="/articles/<%= article.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_article/<%= article.id %>" class="btn btn-danger" rel="nofollow">Delete</a>

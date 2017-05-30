@@ -5,15 +5,15 @@ Rails.application.routes.draw do
 
   # Routes for the Story resource:
   # CREATE
-  get "/stories/new", :controller => "stories", :action => "new"
+  # get "/stories/new", :controller => "stories", :action => "new"
   post "/create_story", :controller => "stories", :action => "create"
 
   # READ
-  get "/stories", :controller => "stories", :action => "index"
-  get "/stories/:id", :controller => "stories", :action => "show"
+  # get "/stories", :controller => "stories", :action => "index"
+  # get "/stories/:id", :controller => "stories", :action => "show"
 
   # UPDATE
-  get "/stories/:id/edit", :controller => "stories", :action => "edit"
+  # get "/stories/:id/edit", :controller => "stories", :action => "edit"
   post "/update_story/:id", :controller => "stories", :action => "update"
 
   # DELETE
