@@ -27,12 +27,18 @@
       <dd>
         <%= @company.hq_address %>
       </dd>
-      <dd>        <iframe width="300" height="300" frameborder="0" style="border:0"
-               src="https://www.google.com/maps/embed?<%=@latitude%>,<%=@longitude%>"
-               allowfullscreen>
-              </iframe>
-            </dd>
-<!-- AIzaSyDiImsjKJaTq4xmwmzbNINp-Y_aadzA2c0 -->
+      <dd>
+        Latitude: <%=@latitude %>, Longitude:  <%=@longitude%>
+      </dd>
+      <dd>        <iframe
+        width="600"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAA-OuBlZ4gthbU9KMVYTW3LlFguCDgTe4
+        &q=<%=@street_address_clean%>" allowfullscreen>
+      </iframe>
+    </dd>
+
 
       <dt>Active business</dt>
       <dd><%= if @company.active_business then "Yes" else "No" end%></dd>
