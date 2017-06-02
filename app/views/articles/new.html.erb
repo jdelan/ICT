@@ -59,7 +59,8 @@
         </label>
         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 
-        <input type="text" id="date" name="date" placeholder="yyyy-mm-dd" class="form-control" value="<%= @article.date %>">
+<input type="date" data-provide='datepicker' id="date" name="date" placeholder="yyyy-mm-dd" class="form-control" value="<%= @article.date %>">
+
       </div>
 
       <!-- Input for user_id -->
