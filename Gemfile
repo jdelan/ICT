@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Datepicker gem
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.0.1'
-
+gem 'bcrypt', platforms: :ruby
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")

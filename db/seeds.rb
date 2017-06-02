@@ -44,29 +44,6 @@ Story.create(company_id: 3, article_id: 5)
 puts "There are now #{Story.count} article to company pairings in the database."
 
 
-companies.each do |company_comment|
-  rand(6).times do
-    company_comment = Company_comment.new
-    company_comment.id = company_comment.id
-    company_comment.company_id = company_comment.company.id
-    company_comment.user_id = users.sample.id
-    company_comment.comment = Faker::Hacker.say_something_smart
-    company_comment.save
-  end
-end
-
-# Company_comment.create(comment: 'Unity is awesome', company_id: 1, user_id: 1)
-# Company_comment.create(comment: 'I love programming using Unity', company_id: 1, user_id: 1)
-# Company_comment.create(comment: 'Unity sucks', company_id: 1, user_id: 2)
-# Company_comment.create(comment: 'Yay! I recommend Unity to all my friends', company_id: 1, user_id: 3)
-# Company_comment.create(comment: 'Viva ODG!', company_id: 2, user_id: 1)
-# Company_comment.create(comment: 'ODG has some cool gear', company_id: 2, user_id: 2)
-# Company_comment.create(comment: 'The Daqri smart helmet looks stupid', company_id: 3, user_id: 2)
-# Company_comment.create(comment: 'The helmet makes the wearer look like a fashion-unaware Stormtrooper wearing blue sunglasses', company_id: 3, user_id: 3)
-
-puts "There are now #{Company_comment.count} company comments in the database."
-
-
 Contact.create(name: 'Ms. Unity CEO', role: 'CEO', email: 'UnityCEO@Unity.com', phone_number: '555-123-5555', notes: 'Seems like a chill CEO', company_id: 1, user_id: 1)
 Contact.create(name: 'Ms. Unity CEO', role: 'CEO', email: 'UnityCEO@Unity.com', phone_number: '555-123-5555', notes: 'Seems like an angry CEO', company_id: 1, user_id: 2)
 Contact.create(name: 'Ms. Unity CTO', role: 'CTO', email: 'UnityCTO@Unity.com', phone_number: '555-456-5555', notes: 'Seems like a chill CTO', company_id: 1, user_id: 2)
@@ -81,21 +58,46 @@ Contact.create(name: 'Mr. Daqri CTO', role: 'CTO', email: 'DaqriCTO@Unity.com', 
 puts "There are now #{Contact.count} contacts in the database."
 
 
-Company.each do |company|
-  users.sample(rand(users.count)).each do |user|
-    tracking = Tracking.new
-    tracking.user_id = user.id
-    tracking.company_id = company.id
-    tracking.save
-  end
-end
+# Company.each do |company|
+#   User.sample(rand(users.count)).each do |user|
+#     tracking = Tracking.new
+#     tracking.user_id = user.id
+#     tracking.company_id = company.id
+#     tracking.save
+#   end
+# end
 
-# Tracking.create(user_id: 1, company_id: 1)
-# Tracking.create(user_id: 1, company_id: 2)
-# Tracking.create(user_id: 2, company_id: 1)
-# Tracking.create(user_id: 2, company_id: 3)
-# Tracking.create(user_id: 3, company_id: 1)
-# Tracking.create(user_id: 3, company_id: 2)
-# Tracking.create(user_id: 3, company_id: 3)
+Tracking.create(user_id: 1, company_id: 1)
+Tracking.create(user_id: 1, company_id: 2)
+Tracking.create(user_id: 2, company_id: 1)
+Tracking.create(user_id: 2, company_id: 3)
+Tracking.create(user_id: 3, company_id: 1)
+Tracking.create(user_id: 3, company_id: 2)
+Tracking.create(user_id: 3, company_id: 3)
 
 puts "There are now #{Tracking.count} trackings in the database."
+
+
+# Company.each do |company|
+#   rand(4).times do
+#     comment = Company_comments.new
+#     comment.id = comment.id
+#     comment.company_id = company.id
+#     comment.user_id = User.sample.id
+#     comment.comment = Faker::Hacker.say_something_smart
+#     comment.save
+#   end
+# end
+
+Company_comments.create(comment: 'Unity is awesome', company_id: 1, user_id: 1)
+Company_comments.create(comment: 'I love programming using Unity', company_id: 1, user_id: 1)
+Company_comments.create(comment: 'Unity sucks', company_id: 1, user_id: 2)
+Company_comments.create(comment: 'Yay! I recommend Unity to all my friends', company_id: 1, user_id: 3)
+Company_comments.create(comment: 'Viva ODG!', company_id: 2, user_id: 1)
+Company_comments.create(comment: 'ODG has some cool gear', company_id: 2, user_id: 2)
+Company_comments.create(comment: 'The Daqri smart helmet looks stupid', company_id: 3, user_id: 2)
+Company_comments.create(comment: 'The helmet makes the wearer look like a fashion-unaware Stormtrooper wearing blue sunglasses', company_id: 3, user_id: 3)
+
+puts "There are now #{Company_comments.count} company comments in the database."
+
+#
