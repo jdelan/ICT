@@ -29,48 +29,48 @@
 
       <!-- Label and input for tag -->
       <!-- <div class="form-group">
-        <label for="tag" class="control-label">
-          Tag
-        </label>
+      <label for="tag" class="control-label">
+      Tag
+    </label>
 
-        <input type="text" id="tag" name="tag" placeholder="Tag" class="form-control" value="<%= @article.tag %>">
-      </div> -->
+    <input type="text" id="tag" name="tag" placeholder="Tag" class="form-control" value="<%= @article.tag %>">
+  </div> -->
 
-      <!-- Label and input for title -->
-      <div class="form-group">
-        <label for="title" class="control-label">
-          Title
-        </label>
+  <!-- Label and input for title -->
+  <div class="form-group">
+    <label for="title" class="control-label">
+      Title
+    </label>
 
-        <textarea id="title" name="title" placeholder="Title" class="form-control" rows="3"><%= @article.title %></textarea>
-      </div>
-
-      <!-- Label and input for company_id -->
-      <div class="form-group">
-        <label for="company_id" class="control-label">
-          Company<a href="/companies/new"> or add a company</a>
-        </label>
-        <%= select_tag(:company_id, options_from_collection_for_select(Company.order("name ASC"), :id, :name), :class => "form-control") %>
-      </div>
-      <!-- Label and input for date -->
-      <div class="form-group">
-        <label for="date" class="control-label">
-          Date
-        </label>
-        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-
-<input type="date" data-provide='datepicker' id="date" name="date" placeholder="yyyy-mm-dd" class="form-control" value="<%= @article.date %>">
-
-      </div>
-
-      <!-- Input for user_id -->
-      <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
-
-      <button class="btn btn-success">
-        Create Article
-      </button>
-      or
-      <a href="/articles">Cancel</a>
-    </form>
+    <textarea id="title" name="title" placeholder="Title" class="form-control" rows="3"><%= @article.title %></textarea>
   </div>
+
+  <!-- Label and input for company_id -->
+  <div class="form-group">
+    <label for="company_id" class="control-label">
+      Company<a href="/companies/new"> or add a company</a>
+    </label>
+    <%= select_tag(:company_id, options_from_collection_for_select(Company.order("name ASC"), :id, :name), :class => "form-control") %>
+  </div>
+  <!-- Label and input for date -->
+  <div class="form-group">
+    <label for="date" class="control-label">
+      Date
+    </label>
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+
+    <input type="date" data-provide='datepicker' id="date" name="date" placeholder="yyyy-mm-dd" class="form-control" value="<%= @article.date %>">
+
+  </div>
+
+  <!-- Input for user_id -->
+  <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+
+  <button class="btn btn-success">
+    Create Article
+  </button>
+  or
+  <a href="/articles">Cancel</a>
+</form>
+</div>
 </div>
