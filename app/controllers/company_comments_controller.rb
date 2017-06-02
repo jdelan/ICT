@@ -1,6 +1,6 @@
 class CompanyCommentsController < ApplicationController
   def index
-    @company_comments = CompanyComment.all.order("updated_at ASC")
+    @company_comments = CompanyComment.all.order("updated_at DESC")
 
     render("company_comments/index.html.erb")
   end

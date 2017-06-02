@@ -22,6 +22,7 @@ class Article < ApplicationRecord
 validates :url, :presence => true
 validates :title, :presence => true
 validates :date, :presence => true
+# validates :tag, :presence => true
 validates :company_id, :presence => true
 
 end

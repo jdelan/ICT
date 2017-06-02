@@ -13,10 +13,10 @@
         <th>Company</th>
         <th>Date</th>
         <th>Posted Date</th>
-        <th>Tag</th>
+        <!-- <th>Tag</th> -->
         <th>Posted By</th>
         <th>Url</th>
-        <th>Actions</th>
+        <th>Available Actions</th>
       </tr>
 
       <% @articles.each do |article| %>
@@ -29,7 +29,7 @@
         </td>
         <td><%= article.date %></td>
         <td><%= article.created_at.strftime('%F') %></td>
-        <td><%= article.tag %></td>
+        <!-- <td><%= article.tag %></td> -->
         <td><%= article.user.username %></td>
         <td><% if article.url[21] != nil then %>
           <%=  article.url[0,20]+"..." %>

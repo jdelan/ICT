@@ -21,7 +21,7 @@
       <dd><%= @contact.notes %></dd>
 
       <dt>Company</dt>
-      <dd><%= @contact.company.name %></dd>
+      <dd><a href="/companies/<%= @contact.company.id %>"><%= @contact.company.name %></a></dd>
 
     </dl>
 
