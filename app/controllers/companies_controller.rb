@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
     parsed_data = JSON.parse(open(url).read)
     @latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
     @longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
-    
+    @street_address_clean = @street_address.gsub(" ","+")
 
     render("companies/show.html.erb")
   end
