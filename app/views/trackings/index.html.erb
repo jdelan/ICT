@@ -10,12 +10,16 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Company</th>
+        <th>Tracking ID</th>
         <th>Actions</th>
+
       </tr>
 
       <% @trackings.each do |tracking| %>
       <tr>
         <td><a href="/delete_tracking/<%= tracking.id %>"><%= tracking.company.name %></td>
+        <td><%= tracking.id %></td>
+
         <td>
           <a href="/delete_tracking/<%= tracking.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>

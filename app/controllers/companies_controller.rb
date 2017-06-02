@@ -15,6 +15,12 @@ class CompaniesController < ApplicationController
     @longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
     @street_address_clean = @street_address.gsub(" ","+")
 
+    if Tracking.where({ user_id: current_user.id, company_id: @company.id }).first == nil then
+      @liked == 0
+    else
+      @liked == 1
+    end
+
     render("companies/show.html.erb")
   end
 

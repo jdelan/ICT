@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_tracking/:id", :controller => "trackings", :action => "destroy"
+
   #------------------------------
 
   # Routes for the Company_comment resource:
