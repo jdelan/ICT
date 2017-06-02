@@ -34,6 +34,12 @@
         <dt>Description</dt>
         <dd><%= @company.description %></dd>
 
+        <dt>Active business</dt>
+        <dd><%= if @company.active_business then "Yes" else "No" end%></dd>
+
+        <dt>Added by</dt>
+        <dd><%= @company.user.username %></dd>
+
         <dt>HQ address</dt>
         <dd>
           <%= @company.hq_address %>
@@ -51,11 +57,7 @@
       </dd>
 
 
-      <dt>Active business</dt>
-      <dd><%= if @company.active_business then "Yes" else "No" end%></dd>
 
-      <dt>Added by</dt>
-      <dd><%= @company.user.username %></dd>
 
     </dl>
 
@@ -71,7 +73,7 @@
       </a>
     </div>
   </div>
-</div>
+</div></br>
 
 <div class="row">
   <div class="col-md-12">
