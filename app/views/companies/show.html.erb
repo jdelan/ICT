@@ -3,52 +3,52 @@
   <!-- if Tracking.where([user_id: current_user.id, company_id: @company.id]) then   -->
 
   <% if Tracking.where({ user_id: current_user.id, company_id: @company.id }).first == nil then %>
-<form action="/create_tracking" method="post">
-  <% else %>
-  <form action="/delete_tracking/<%= Tracking.where({ user_id: current_user.id, company_id: @company.id }).last.id %>" method="get">
-<% end %>
-
-  <!-- Hidden input for authenticity token to protect from forgery -->
-  <input name="authenticity_token" type="hidden">
-  <input type="hidden" name="company_id" value="<%= @company.id %>">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <input type="hidden" name="user_id" value="<%= current_user.id %>">
-  <button class="btn btn-info">
-
-    <% if Tracking.where({ user_id: current_user.id, company_id: @company.id }).first == nil then %>
-    <i>Track Company</i>
+  <form action="/create_tracking" method="post">
     <% else %>
-    <i>Stop Tracking</i>
-    <% end %>
+    <form action="/delete_tracking/<%= Tracking.where({ user_id: current_user.id, company_id: @company.id }).last.id %>" method="get">
+      <% end %>
 
-  </button>
-</form>
-</div>
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden">
+      <input type="hidden" name="company_id" value="<%= @company.id %>">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+      <button class="btn btn-info">
 
-<div class="row">
-  <div class="col-md-12 mb-2">
-    <dl class="dl-horizontal">
-      <dt>Name</dt>
-      <dd><%= @company.name %></dd>
+        <% if Tracking.where({ user_id: current_user.id, company_id: @company.id }).first == nil then %>
+        <i>Track Company</i>
+        <% else %>
+        <i>Stop Tracking</i>
+        <% end %>
 
-      <dt>Description</dt>
-      <dd><%= @company.description %></dd>
+      </button>
+    </form>
+  </div>
 
-      <dt>HQ address</dt>
-      <dd>
-        <%= @company.hq_address %>
+  <div class="row">
+    <div class="col-md-12 mb-2">
+      <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd><%= @company.name %></dd>
+
+        <dt>Description</dt>
+        <dd><%= @company.description %></dd>
+
+        <dt>HQ address</dt>
+        <dd>
+          <%= @company.hq_address %>
+        </dd>
+        <dd>
+          Latitude: <%=@latitude %>, Longitude:  <%=@longitude%>
+        </dd>
+        <dd>        <iframe
+          width="600"
+          height="450"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAA-OuBlZ4gthbU9KMVYTW3LlFguCDgTe4
+          &q=<%=@street_address_clean%>" allowfullscreen>
+        </iframe>
       </dd>
-      <dd>
-        Latitude: <%=@latitude %>, Longitude:  <%=@longitude%>
-      </dd>
-      <dd>        <iframe
-        width="600"
-        height="450"
-        frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAA-OuBlZ4gthbU9KMVYTW3LlFguCDgTe4
-        &q=<%=@street_address_clean%>" allowfullscreen>
-      </iframe>
-    </dd>
 
 
       <dt>Active business</dt>
@@ -73,7 +73,27 @@
   </div>
 </div>
 
-<h2>Comments</h2>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <h2>Articles</h2>
+          <% @company.articles.each do |article| %>
+          <tr>
+            <td><%= article.user.username%> ... <%= time_ago_in_words(article.created_at) %> ago</td></br>
+            <td><a href="/articles/<%= article.id %>"><%= article.title %></a></td></br>
+            <td></td></br>
+          </tr>
+          <% end %>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 
@@ -82,11 +102,11 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-
+          <h2>Comments</h2>
           <% @company.company_comments.each do |comment| %>
           <tr>
-            <td><%= comment.user.username%> ... <%= time_ago_in_words(comment.created_at) %> ago </br></td>
-            <td><%= comment.comment %></td>
+            <td><%= comment.user.username%> ... <%= time_ago_in_words(comment.created_at) %> ago</td></br>
+            <td><%= comment.comment %></td></br>
 
             <td>
               <a href="/comment/<%= comment.id %>" class="btn btn-primary">Show</a>
@@ -94,31 +114,31 @@
               <a href="/comment/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>
               <a href="/delete_company_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
               <% end %>
-              </br>
-            </td>
-          </tr>
-          <% end %>
+            </br>
+          </td>
+        </tr>
+        <% end %>
 
-            <td><p>
-              <form action="/create_company_comment" method="post">
-                <!-- Hidden input for authenticity token to protect from forgery -->
-                <input name="authenticity_token" type="hidden">
+        <td><p>
+          <form action="/create_company_comment" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden">
 
-                <!-- Label and input for New comment -->
-                <div class="form-group">
-                  <input type="text" id="new_comment" name="comment" placeholder="New Comment" class="form-control">
-                </div>
+            <!-- Label and input for New comment -->
+            <div class="form-group">
+              <input type="text" id="new_comment" name="comment" placeholder="New Comment" class="form-control">
+            </div>
 
-                <input type="hidden" name="company_id" value="<%= @company.id %>">
+            <input type="hidden" name="company_id" value="<%= @company.id %>">
 
-                <input type="hidden" name="user_id" value="<%= current_user.id %>">
-                <button class="btn btn-link">
-                  <i>Submit Comment</i>
-                </button>
-              </form>
-            </p></td>
-        </h3>
-      </div>
+            <input type="hidden" name="user_id" value="<%= current_user.id %>">
+            <button class="btn btn-link">
+              <i>Submit Comment</i>
+            </button>
+          </form>
+        </p></td>
+      </h3>
     </div>
   </div>
+</div>
 </div>

@@ -16,7 +16,7 @@
 
       <dt>Company</dt>
       <dd><% @article.stories.each do |story| %>
-      <%= story.company.name %>
+      <a href="/companies/<%= story.company.id %>"><%= story.company.name %></a>
       <% end %></dd>
 
       <dt>Date</dt>
