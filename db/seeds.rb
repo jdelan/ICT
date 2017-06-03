@@ -89,15 +89,15 @@ puts "There are now #{Tracking.count} trackings in the database."
 #   end
 # end
 
-Company_comments.create(comment: 'Unity is awesome', company_id: 1, user_id: 1)
-Company_comments.create(comment: 'I love programming using Unity', company_id: 1, user_id: 1)
-Company_comments.create(comment: 'Unity sucks', company_id: 1, user_id: 2)
-Company_comments.create(comment: 'Yay! I recommend Unity to all my friends', company_id: 1, user_id: 3)
-Company_comments.create(comment: 'Viva ODG!', company_id: 2, user_id: 1)
-Company_comments.create(comment: 'ODG has some cool gear', company_id: 2, user_id: 2)
-Company_comments.create(comment: 'The Daqri smart helmet looks stupid', company_id: 3, user_id: 2)
-Company_comments.create(comment: 'The helmet makes the wearer look like a fashion-unaware Stormtrooper wearing blue sunglasses', company_id: 3, user_id: 3)
+CompanyComment.create(comment: 'Unity is awesome', company_id: 1, user_id: 1)
+CompanyComment.create(comment: 'I love programming using Unity', company_id: 1, user_id: 1)
+CompanyComment.create(comment: 'Unity sucks', company_id: 1, user_id: 2)
+CompanyComment.create(comment: 'Yay! I recommend Unity to all my friends', company_id: 1, user_id: 3)
+CompanyComment.create(comment: 'Viva ODG!', company_id: 2, user_id: 1)
+CompanyComment.create(comment: 'ODG has some cool gear', company_id: 2, user_id: 2)
+CompanyComment.create(comment: 'The Daqri smart helmet looks stupid', company_id: 3, user_id: 2)
+CompanyComment.create(comment: 'The helmet makes the wearer look like a fashion-unaware Stormtrooper wearing blue sunglasses', company_id: 3, user_id: 3)
 
-puts "There are now #{Company_comments.count} company comments in the database."
+puts "There are now #{CompanyComment.count} company comments in the database."
 
 #
