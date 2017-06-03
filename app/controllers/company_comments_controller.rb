@@ -19,6 +19,7 @@ class CompanyCommentsController < ApplicationController
   end
 
   def create
+    
     @company = Company.find(params[:company_id])
     @company_comment = CompanyComment.new
 
