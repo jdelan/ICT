@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   # CREATE
   get "/trackings/new", :controller => "trackings", :action => "new"
   post "/create_tracking", :controller => "trackings", :action => "create"
+  post "/create_tracking_index", :controller => "trackings", :action => "create_index"  
 
   # READ
   get "/trackings", :controller => "trackings", :action => "index"

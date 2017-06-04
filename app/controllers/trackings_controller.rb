@@ -32,6 +32,21 @@ class TrackingsController < ApplicationController
     end
   end
 
+  def create_index
+    @tracking = Tracking.new
+
+    @tracking.user_id = params[:user_id]
+    @tracking.company_id = params[:company_id]
+
+    save_status = @tracking.save
+
+    if save_status == true
+      redirect_to("/companies", :notice => "Tracking created successfully.")
+    else
+      render("trackings/new.html.erb")
+    end
+  end
+
   def edit
     @tracking = Tracking.find(params[:id])
 

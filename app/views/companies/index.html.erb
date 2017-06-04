@@ -23,7 +23,7 @@
       <tr>
         <td>
           <% if Tracking.where({ user_id: current_user.id, company_id: company.id }).first == nil then %>
-        <form action="/create_tracking" method="post">
+        <form action="/create_tracking_index" method="post">
           <% else %>
           <form action="/delete_tracking/<%= Tracking.where({ user_id: current_user.id, company_id: company.id }).last.id %>" method="get">
         <% end %>
