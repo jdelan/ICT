@@ -28,15 +28,10 @@
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/articles" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/articles/<%= @article.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_article/<%= @article.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if article.user_id == current_user.id then %>
+      <a href="/articles/<%= article.id %>/edit" class="btn btn-warning">Edit</a>
+      <a href="/delete_article/<%= article.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+      <% end %>
     </div>
   </div>
 </div>
