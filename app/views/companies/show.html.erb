@@ -60,7 +60,7 @@
 
 
     </dl>
-
+    <% if @company.user_id == current_user.id then %>
     <div class="btn-group btn-group-justified">
       <a href="/companies" class="btn btn-primary">
         Back
@@ -72,6 +72,7 @@
         Delete
       </a>
     </div>
+    <% end %>
   </div>
 </div></br>
 
