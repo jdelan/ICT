@@ -26,7 +26,7 @@
         <dd><%= @article.user.username %></dd>
 
       </dl>
-      <% if article.user_id == current_user.id then %>
+      <% if @article.user_id == current_user.id then %>
       <div class="btn-group btn-group-justified">
         <a href="/articles" class="btn btn-primary">
           Back
