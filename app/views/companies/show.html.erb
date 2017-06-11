@@ -108,7 +108,6 @@
             <td><%= comment.comment %></td></br>
 
             <td>
-              <a href="/comment/<%= comment.id %>" class="btn btn-primary">Show</a>
               <% if comment.user.id == current_user.id then %>
               <a href="/comment/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>
               <a href="/delete_company_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
